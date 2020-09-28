@@ -108,13 +108,6 @@ red = {
 }
 
 
-# In[390]:
-
-
-#print (red)
-
-
-# In[391]:
 
 
 intra_corr_neg=[40,10] #dentro del modulo, corr neg
@@ -164,39 +157,12 @@ tril_i,tril_j = np.tril_indices(A.shape[0],k=-1)
 A[tril_j,tril_i] = A[tril_i,tril_j]
 
 
-# In[394]:
-
-
-#A.shape
-
-
-# In[395]:
-
-
-#A
-
-
-# In[396]:
-
-
 np.savetxt("DS_A.txt", A, delimiter="\t")
-
-
-# In[397]:
 
 
 # simulate values based on the covariance
 M = np.random.multivariate_normal(mean=np.zeros(A.shape[0]),cov=A,size=500)
 print(M)
-
-
-# In[398]:
-
-
-#M.shape
-
-
-# In[399]:
 
 
 M_c = np.corrcoef(M.T) #correlacion en columnas
@@ -303,10 +269,6 @@ links_filtrados
 import networkx as nx
 # Build your graph
 G=nx.from_pandas_edgelist(links_filtrados, 'gen1', 'gen2')
-
-
-# In[114]:
-
 
 # Plot the network:
 nx.draw(G, with_labels=True, node_color='orange', node_size=100, edge_color='black', linewidths=1, font_size=4)
